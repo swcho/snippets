@@ -35,6 +35,7 @@ async function run() {
   groups.sort(([a], [b]) => (milestoneNames.includes(b) ? 100 : 0) - (milestoneNames.includes(a) ? 100 : 0))
   const grouped = groups.map(([group, lines]) => `### ${group}\n${lines.join('\n')}\n`).join('\n')
   console.log(grouped)
+  window.__RELEASE_NOTE__ = grouped
   copyToClipboard(grouped)
 }
 
